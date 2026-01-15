@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evgeny Podshivalov - Resume</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: white;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: white;
+        }
+
+        .header {
+            border-bottom: 3px solid #2c3e50;
+            padding-bottom: 20px;
+            margin-bottom: 25px;
+        }
+
+        .header h1 {
+            font-size: 32px;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .header .title {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .contact-info span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .section {
+            margin-bottom: 25px;
+        }
+
+        .section h2 {
+            font-size: 20px;
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+        }
+
+        .section h3 {
+            font-size: 16px;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+
+        .summary {
+            text-align: justify;
+            line-height: 1.8;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+        }
+
+        .skill-category {
+            background: #f8f9fa;
+            padding: 12px;
+            border-radius: 5px;
+        }
+
+        .skill-category h4 {
+            color: #2c3e50;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .skill-category ul {
+            list-style: none;
+            font-size: 13px;
+            color: #555;
+        }
+
+        .skill-category li:before {
+            content: "• ";
+            color: #3498db;
+            font-weight: bold;
+        }
+
+        .job {
+            margin-bottom: 20px;
+            page-break-inside: avoid;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 5px;
+            flex-wrap: wrap;
+        }
+
+        .job-title {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 15px;
+        }
+
+        .job-period {
+            color: #666;
+            font-size: 13px;
+            font-style: italic;
+        }
+
+        .company {
+            color: #3498db;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .job-location {
+            color: #777;
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+
+        .responsibilities {
+            margin-left: 20px;
+            font-size: 13px;
+            color: #555;
+        }
+
+        .responsibilities li {
+            margin-bottom: 4px;
+        }
+
+        .project {
+            margin-bottom: 15px;
+            background: #f8f9fa;
+            padding: 12px;
+            border-radius: 5px;
+            border-left: 3px solid #3498db;
+        }
+
+        .project-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .project-tech {
+            font-size: 12px;
+            color: #666;
+            font-style: italic;
+            margin-bottom: 8px;
+        }
+
+        .project-desc {
+            font-size: 13px;
+            color: #555;
+        }
+
+        .project-desc ul {
+            margin-left: 20px;
+            margin-top: 5px;
+        }
+
+        .achievements {
+            background: #e8f4f8;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #3498db;
+        }
+
+        .achievements ul {
+            margin-left: 20px;
+            font-size: 13px;
+            color: #555;
+        }
+
+        .achievements li {
+            margin-bottom: 5px;
+        }
+
+        .download-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #3498db;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+
+        .download-btn:hover {
+            background: #2980b9;
+        }
+
+        @media print {
+            body {
+                padding: 0;
+            }
+            .download-btn {
+                display: none;
+            }
+            .section {
+                page-break-inside: avoid;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .download-btn {
+                position: static;
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .job-header {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<button class="download-btn" onclick="window.print()">Download PDF</button>
+
+<div class="container">
+    <div class="header">
+        <h1>Evgeny Vladimirovich Podshivalov</h1>
+        <div class="title">Senior Fullstack Developer / Web Architect</div>
+        <div class="contact-info">
+            <span>📍 Krasnodar, Russia (Ready to relocate)</span>
+            <span>📱 +7 (993) 304-3511</span>
+            <span>✈️ Telegram: @Neuromachine</span>
+            <span>📧 neuromachine86@mail.ru</span>
+            <span>🌐 ws-pro.ru</span>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Professional Summary</h2>
+        <div class="summary">
+            Senior Fullstack Developer with 17+ years of extensive experience in web development, system architecture, and team leadership. Proven track record spanning from UI/frontend development to complex backend architecture, system design, and full-cycle project management.
+            <br><br>
+            I work at the intersection of development, product thinking, and business logic. Comfortable taking full ownership of projects from initial concept and architecture through implementation, optimization, and long-term maintenance. Strong experience working both independently and within distributed teams, with clear communication across developers, managers, and clients.
+            <br><br>
+            Background includes traditional corporate IT roles and information security positions, providing comprehensive understanding of both technical implementation and organizational processes.
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Core Expertise</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h4>Backend Development</h4>
+                <ul>
+                    <li>Laravel / PHP 5+</li>
+                    <li>MySQL Database Design</li>
+                    <li>API Development & Integration</li>
+                    <li>RESTful Architecture</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h4>Frontend Development</h4>
+                <ul>
+                    <li>Vue.js 2/3, React, AngularJS</li>
+                    <li>JavaScript / JSON</li>
+                    <li>HTML/CSS Markup</li>
+                    <li>Responsive Design</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h4>Design & UX</h4>
+                <ul>
+                    <li>Figma, Adobe Photoshop</li>
+                    <li>Adobe Illustrator</li>
+                    <li>Web Design</li>
+                    <li>UI/UX Principles</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h4>Architecture & Leadership</h4>
+                <ul>
+                    <li>System Architecture</li>
+                    <li>Team Leadership</li>
+                    <li>Code Reviews</li>
+                    <li>Project Management</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h4>DevOps & Security</h4>
+                <ul>
+                    <li>Linux Server Administration</li>
+                    <li>Information Security</li>
+                    <li>Network Security</li>
+                    <li>Penetration Testing</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h4>Additional Skills</h4>
+                <ul>
+                    <li>CMS Development</li>
+                    <li>Version Control</li>
+                    <li>Performance Optimization</li>
+                    <li>Technical Documentation</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Selected Projects</h2>
+
+        <div class="project">
+            <div class="project-title">Shincenter E-commerce Platform</div>
+            <div class="project-tech">Laravel, Vue.js, MySQL | <a href="https://topshina.su">topshina.su</a></div>
+            <div class="project-desc">
+                <ul>
+                    <li>Refactored catalog structure and filtering logic for improved performance</li>
+                    <li>Optimized handling of large product datasets with legacy architecture</li>
+                    <li>Significantly improved page load speed and overall system performance</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="project">
+            <div class="project-title">RayaRay Online Store</div>
+            <div class="project-tech">Laravel, Vue 3, MySQL, CDEK API | <a href="http://rayaray.nero1218.tech">rayaray.nero1218.tech</a></div>
+            <div class="project-desc">
+                <ul>
+                    <li>Built custom end-to-end customer journey from product selection to payment</li>
+                    <li>Integrated CDEK delivery API with dynamic pricing logic</li>
+                    <li>Customized admin panel and optimized storage architecture</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="project">
+            <div class="project-title">Vershina B2B Platform</div>
+            <div class="project-tech">Laravel, Vue 2, Team Leadership | <a href="https://vershinatyres.ru">vershinatyres.ru</a></div>
+            <div class="project-desc">
+                <ul>
+                    <li>Led development team of 3 developers</li>
+                    <li>Designed product import and filtering architecture</li>
+                    <li>Established code review processes and quality standards</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="project">
+            <div class="project-title">Additional Projects & Capabilities</div>
+            <div class="project-desc">
+                <ul>
+                    <li>Development of 2 custom CMS solutions from scratch</li>
+                    <li>CRM implementation and business system integrations</li>
+                    <li>Integration of third-party and internal APIs</li>
+                    <li>Telegram bots, SMM tools, marketing automation</li>
+                    <li>Analytics and metrics collection automation</li>
+                    <li>100+ completed projects including landing pages, admin panels, portals</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Professional Experience</h2>
+
+        <div class="job">
+            <div class="job-header">
+                <div class="job-title">CEO / Founder</div>
+                <div class="job-period">January 2025 – Present (7 months)</div>
+            </div>
+            <div class="company">Web Solution</div>
+            <div class="job-location">Moscow, Russia | ws-pro.ru</div>
+            <div class="responsibilities">
+                Full-cycle Internet advertising agency. Leading all aspects of web development projects, business development, and client relations.
+            </div>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <div class="job-title">Fullstack Developer</div>
+                <div class="job-period">August 2023 – October 2024 (1 year 3 months)</div>
+            </div>
+            <div class="company">Net-Craft</div>
+            <div class="job-location">Krasnodar, Russia</div>
+            <ul class="responsibilities">
+                <li>Development and maintenance of web application client-side components</li>
+                <li>Writing and refactoring program code</li>
+                <li>Regular monitoring of software performance and functionality</li>
+                <li>Code optimization and performance tuning</li>
+                <li>Development and maintenance of server-side application components</li>
+                <li>Design and development of website interface mockups</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <div class="job-title">Fullstack Developer (Self-Employed)</div>
+                <div class="job-period">August 2022 – July 2023 (1 year)</div>
+            </div>
+            <div class="company">Independent Contractor</div>
+            <div class="job-location">Krasnodar, Russia</div>
+            <ul class="responsibilities">
+                <li>Full-cycle web application development</li>
+                <li>Client and server-side development</li>
+                <li>Code refactoring and optimization</li>
+                <li>Interface design and implementation</li>
+                <li>Performance monitoring and improvements</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <div class="job-title">Frontend Developer / Team Lead</div>
+                <div class="job-period">September 2021 – July 2022 (11 months)</div>
+            </div>
+            <div class="company">Vershina LLC</div>
+            <div class="job-location">Krasnodar, Russia | vershinatyres.ru</div>
+            <ul class="responsibilities">
+                <li>Development and maintenance of client-side web applications</li>
+                <li>Code writing, refactoring, and optimization</li>
+                <li>Regular performance monitoring and bug analysis</li>
+                <li>Test planning and execution</li>
+                <li>Version control and change management</li>
+                <li>Code testing and bug fixes</li>
+                <li>Module integration and application assembly</li>
+                <li>Development progress reporting</li>
+                <li>Development team management</li>
+                <li>Backlog coordination with product team and clients</li>
+                <li>Code review for team members</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <div class="job-title">Fullstack Developer (Self-Employed)</div>
+                <div class="job-period">November 2020 – August 2021 (10 months)</div>
+            </div>
+            <div class="company">Independent Contractor</div>
+            <div class="job-location">Krasnodar, Russia</div>
+            <ul class="responsibilities">
+                <li>Full-stack web application development</li>
+                <li>Client and server-side programming</li>
+                <li>Code optimization and refactoring</li>
+                <li>Interface design and development</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <div class="job-title">Lead Specialist - Information Security</div>
+                <div class="job-period">August 2020 – October 2020 (3 months)</div>
+            </div>
+            <div class="company">Afipskiy Oil Refinery LLC</div>
+            <div class="job-location">Krasnodar, Russia | afipnpz.ru</div>
+            <div class="responsibilities">
+                Information protection and security department responsibilities.
+            </div>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <div class="job-title">Fullstack Developer (Self-Employed)</div>
+                <div class="job-period">July 2019 – July 2020 (1 year 1 month)</div>
+            </div>
+            <div class="company">Independent Contractor</div>
+            <div class="job-location">Krasnodar, Russia</div>
+            <ul class="responsibilities">
+                <li>Full-cycle web development projects</li>
+                <li>Client and server-side development</li>
+                <li>Performance monitoring and optimization</li>
+                <li>Interface mockup development</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <div class="job-title">Fullstack Developer</div>
+                <div class="job-period">March 2019 – June 2019 (4 months)</div>
+            </div>
+            <div class="company">ASME-COMP</div>
+            <div class="job-location">Krasnodar, Russia</div>
+            <ul class="responsibilities">
+                <li>Web application development and support</li>
+                <li>Code refactoring and optimization</li>
+                <li>Server-side and client-side development</li>
+                <li>Interface design and implementation</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <div class="job-title">Lead IT Specialist (Self-Employed)</div>
+                <div class="job-period">February 2016 – March 2019 (3 years 2 months)</div>
+            </div>
+            <div class="company">Independent Contractor</div>
+            <div class="job-location">Krasnodar, Russia</div>
+            <ul class="responsibilities">
+                <li>Implementation and maintenance of complex web projects</li>
+                <li>Information security assurance</li>
+                <li>Consulting on information protection issues</li>
+                <li>IT infrastructure support</li>
+                <li>Unix-based server administration</li>
+                <li>Full-stack web development</li>
+                <li>Code writing, refactoring, and optimization</li>
+                <li>Interface design and server-side development</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <div class="job-title">Head of Web Development Department</div>
+                <div class="job-period">April 2011 – January 2016 (4 years 10 months)</div>
+            </div>
+            <div class="company">ASME-COMP</div>
+            <div class="job-location">Krasnodar, Russia | acme-group.ru</div>
+            <ul class="responsibilities">
+                <li>Organization and management of full-cycle website sales and development</li>
+                <li>Development of internal web studio workflow methodology</li>
+                <li>Organization of company information security</li>
+                <li>IT infrastructure support and Unix server administration</li>
+                <li>Development of methodology for evaluating and training new technical staff</li>
+                <li>Development of proprietary CMS and modification of third-party systems</li>
+                <li>Participation in presentations and service delivery</li>
+                <li>Website content management, HTML markup, CMS integration, JavaScript</li>
+                <li>Presentation of completed websites to clients</li>
+                <li>Training client personnel in CMS usage</li>
+                <li>Technical support for company clients via Internet and phone</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <div class="job-title">PHP Programmer / Web Developer</div>
+                <div class="job-period">November 2010 – April 2011 (6 months)</div>
+            </div>
+            <div class="company">TNT WEB</div>
+            <div class="job-location">Krasnodar, Russia | tntweb.ru</div>
+            <ul class="responsibilities">
+                <li>Development of proprietary CMS and modification of third-party systems</li>
+                <li>Participation in presentations and service implementation</li>
+                <li>IT infrastructure support and Unix server administration</li>
+                <li>Website content management, HTML markup, CMS integration</li>
+                <li>Full-cycle website development</li>
+                <li>Client presentations and CMS training</li>
+                <li>Technical support via Internet and phone</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <div class="job-title">Information Security Specialist</div>
+                <div class="job-period">April 2010 – November 2010 (8 months)</div>
+            </div>
+            <div class="company">Creative Group A</div>
+            <div class="job-location">Russia</div>
+            <div class="responsibilities">
+                Penetration testing of assigned UNIX systems and wide range of web services.
+            </div>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <div class="job-title">Web Developer / Designer</div>
+                <div class="job-period">March 2008 – April 2010 (2 years 2 months)</div>
+            </div>
+            <div class="company">Prime Group</div>
+            <div class="job-location">Irkutsk, Russia | prime-gr.ru</div>
+            <ul class="responsibilities">
+                <li>IT infrastructure support and Unix server administration</li>
+                <li>Website design mockup development</li>
+                <li>Website content management and HTML markup</li>
+                <li>CMS integration and JavaScript development</li>
+                <li>Full-cycle website development</li>
+                <li>Client presentations and personnel training</li>
+                <li>Technical support provision</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <div class="job-title">Web Developer / Content Manager</div>
+                <div class="job-period">November 2007 – February 2008 (4 months)</div>
+            </div>
+            <div class="company">InSite</div>
+            <div class="job-location">Irkutsk, Russia | in-site.ru</div>
+            <ul class="responsibilities">
+                <li>Website content management and HTML markup</li>
+                <li>CMS integration and JavaScript</li>
+                <li>Full-cycle website development</li>
+                <li>Client presentations and training</li>
+                <li>Technical support services</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Key Achievements</h2>
+        <div class="achievements">
+            <ul>
+                <li>Developing a custom headless solution based on Vue 3 + Vue Router + Pinia + Laravel 12 + Filament — a unified UI + API architecture refined over 10+ years of practical experience</li>
+                <li>Founded and leading an independent development studio (Web Solution)</li>
+                <li>Successfully led distributed development teams across multiple projects</li>
+                <li>Built comprehensive internal development workflows and quality assurance processes</li>
+                <li>Authored structured methodologies for digital service descriptions and documentation</li>
+                <li>Completed 100+ web projects spanning e-commerce, B2B platforms, CMS systems, and corporate websites</li>
+                <li>Developed 2 proprietary CMS platforms from ground up</li>
+                <li>Established code review standards and team development practices</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Education</h2>
+        <div class="job">
+            <div class="job-header">
+                <div class="job-title">Bachelor's Degree in Information Security</div>
+                <div class="job-period">2010</div>
+            </div>
+            <div class="company">Irkutsk State Transport University (IrGUPS)</div>
+            <div class="job-location">Irkutsk, Russia</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Portfolio & References</h2>
+        <ul class="responsibilities">
+            <li><strong>Portfolio:</strong> <a href="https://ws-pro.ru/portfolio">ws-pro.ru/portfolio</a> — Selected projects and UI/UX cases</li>
+            <li><strong>Figma Examples:</strong> Available upon request</li>
+            <li><strong>Project Documentation:</strong> Technical specifications and architecture diagrams available</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Additional Information</h2>
+        <ul class="responsibilities">
+            <li><strong>Languages:</strong> Russian (Native), English (Strong technical reading and written communication, A1-B1 conversational)</li>
+            <li><strong>Work Format:</strong> Remote / Hybrid / On-site (willing to relocate)</li>
+            <li><strong>Availability:</strong> Long-term cooperation preferred, open to project-based work</li>
+            <li><strong>Adaptability:</strong> Comfortable in both startup environments and structured corporate teams</li>
+            <li><strong>Driver's License:</strong> Category A</li>
+            <li><strong>Personal Interests:</strong> 15+ years focused on information security and modern protection technologies alongside web development. Proficient in network security configuration and administration.</li>
+        </ul>
+    </div>
+
+</div>
+
+<script>
+    // Automatically trigger print dialog when loaded
+    // Comment out if you don't want auto-print
+    // window.onload = function() { window.print(); };
+</script>
+
+</body>
+</html>
